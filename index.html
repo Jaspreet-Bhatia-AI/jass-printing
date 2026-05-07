@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,12 +25,7 @@
             --radius: 16px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
 
         body {
             background-color: var(--bg-color);
@@ -59,10 +53,7 @@
             margin-bottom: 5px;
         }
 
-        .header p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-        }
+        .header p { color: var(--text-muted); font-size: 1.05rem; }
 
         /* Pricing Table Styles */
         .pricing-grid {
@@ -81,30 +72,11 @@
             text-align: center;
         }
 
-        .price-card.special {
-            border-color: var(--primary);
-            background: #eff6ff;
-        }
-
-        .price-card h3 {
-            font-size: 1rem;
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        .price-card .rate {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-            color: var(--text-muted);
-        }
-
-        .price-card .rate span {
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
+        .price-card.special { border-color: var(--primary); background: #eff6ff; }
+        .price-card h3 { font-size: 1rem; color: var(--text-main); margin-bottom: 10px; }
+        .price-card .rate { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px; color: var(--text-muted); }
+        .price-card .rate span { font-weight: 600; color: var(--text-main); }
+        
         .binding-banner {
             background: linear-gradient(135deg, var(--secondary), #059669);
             color: white;
@@ -138,10 +110,8 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
+        .form-group { margin-bottom: 20px; }
+        
         label {
             display: block;
             font-size: 0.9rem;
@@ -150,9 +120,7 @@
             color: var(--text-main);
         }
 
-        input[type="text"],
-        input[type="number"],
-        select {
+        input[type="text"], input[type="number"], select {
             width: 100%;
             padding: 12px 16px;
             border-radius: 10px;
@@ -164,8 +132,7 @@
             color: var(--text-main);
         }
 
-        input:focus,
-        select:focus {
+        input:focus, select:focus {
             border-color: var(--primary);
             background: #fff;
             box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
@@ -183,16 +150,8 @@
             font-weight: 500;
         }
 
-        .checkbox-container:hover {
-            border-color: var(--primary);
-        }
-
-        input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            margin-right: 12px;
-            accent-color: var(--primary);
-        }
+        .checkbox-container:hover { border-color: var(--primary); }
+        input[type="checkbox"] { width: 18px; height: 18px; margin-right: 12px; accent-color: var(--primary); }
 
         .dynamic-panel {
             display: none;
@@ -220,16 +179,8 @@
             text-decoration: none;
         }
 
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-hover);
-            transform: translateY(-2px);
-        }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
 
         /* Summary Section */
         .summary-card {
@@ -239,15 +190,8 @@
         }
 
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .summary-item {
@@ -257,14 +201,8 @@
             font-size: 0.95rem;
             border-bottom: 1px dashed var(--border);
         }
-
-        .summary-item:last-of-type {
-            border-bottom: none;
-        }
-
-        .summary-item span:first-child {
-            color: var(--text-muted);
-        }
+        .summary-item:last-of-type { border-bottom: none; }
+        .summary-item span:first-child { color: var(--text-muted); }
 
         .summary-total {
             margin-top: 15px;
@@ -298,55 +236,22 @@
             padding: 10px;
         }
 
-        .qr-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+        .qr-image img { width: 100%; height: 100%; object-fit: contain; }
 
-        .upi-text {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
+        .upi-text { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; }
+        .upi-text strong { color: var(--text-main); user-select: all; }
 
-        .upi-text strong {
-            color: var(--text-main);
-            user-select: all;
-        }
+        .btn-whatsapp { background: #25d366; color: white; margin-top: 15px; }
+        .btn-whatsapp:hover { background: #1ebc5b; transform: translateY(-2px); }
+        .btn-upi { background: #0f172a; color: white; }
 
-        .btn-whatsapp {
-            background: #25d366;
-            color: white;
-            margin-top: 15px;
-        }
-
-        .btn-whatsapp:hover {
-            background: #1ebc5b;
-            transform: translateY(-2px);
-        }
-
-        .btn-upi {
-            background: #0f172a;
-            color: white;
-        }
-
-        .error-hint {
-            color: var(--danger);
-            font-size: 0.85rem;
-            margin-top: 6px;
-            display: none;
-            font-weight: 500;
-        }
+        .error-hint { color: var(--danger); font-size: 0.85rem; margin-top: 6px; display: none; font-weight: 500; }
 
         @media (max-width: 480px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
+            .pricing-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-
 <body>
 
     <div class="app-container">
@@ -409,8 +314,7 @@
                 <div class="form-group" style="margin-bottom: 0;">
                     <label>Color Page Numbers (e.g. 1, 4, 10-15)</label>
                     <input type="text" id="colorPageNumbers" placeholder="Enter page numbers or ranges">
-                    <div id="colorCountError" class="error-hint">Calculated color pages exceed total pages or format is
-                        invalid.</div>
+                    <div id="colorCountError" class="error-hint">Calculated color pages exceed total pages or format is invalid.</div>
                 </div>
             </div>
 
@@ -443,9 +347,9 @@
             <div class="section-title">
                 <i class="fas fa-check-circle"></i> Order Summary
             </div>
-
+            
             <div id="summaryRows">
-            </div>
+                </div>
 
             <div class="summary-total">
                 <span>Grand Total</span>
@@ -467,10 +371,8 @@
             <button id="whatsappBtn" class="btn btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> Send Order Details to WhatsApp
             </button>
-            <p
-                style="text-align: center; font-size: 0.85rem; color: var(--danger); margin-top: 12px; font-weight: 500;">
-                <i class="fas fa-exclamation-circle"></i> Please attach your PDF file AND a screenshot of your payment
-                in the WhatsApp chat.
+            <p style="text-align: center; font-size: 0.85rem; color: var(--danger); margin-top: 12px; font-weight: 500;">
+                <i class="fas fa-exclamation-circle"></i> Please attach your PDF file AND a screenshot of your payment in the WhatsApp chat.
             </p>
         </div>
     </div>
@@ -507,7 +409,7 @@
             if (!inputStr.trim()) return 0;
             let count = 0;
             const parts = inputStr.split(',');
-
+            
             for (let part of parts) {
                 part = part.trim();
                 if (part.includes('-')) {
@@ -538,7 +440,7 @@
             const copies = parseInt(UI.copies.value) || 1;
             const category = UI.category.value;
             const type = UI.printType.value;
-
+            
             let hasError = false;
 
             if (!customerName) {
@@ -568,7 +470,7 @@
             } else {
                 pageStr = UI.colorPageNums.value;
                 colorPages = calculateColorPages(pageStr);
-
+                
                 if (colorPages > totalPages) {
                     UI.colorCountError.style.display = 'block';
                     hasError = true;
@@ -583,11 +485,11 @@
             // Calculations
             const bwRate = PRICING[category].bw;
             const colorRate = PRICING[category].color;
-
+            
             const bwCost = bwPages * bwRate;
             const colorCost = colorPages * colorRate;
             const printCostPerBook = bwCost + colorCost;
-
+            
             let bindingCostPerBook = 0;
             if (UI.binding.checked) {
                 bindingCostPerBook = totalPages > 50 ? 0 : PRICING.bindingBase;
@@ -609,7 +511,15 @@
                 <div class="summary-item"><span>B&W Pages (${bwPages} × ₹${bwRate})</span><strong>₹${bwCost}</strong></div>
                 <div class="summary-item"><span>Color Pages (${colorPages} × ₹${colorRate})</span><strong>₹${colorCost}</strong></div>
                 <div class="summary-item"><span>Binding (${UI.binding.checked ? 'Spiral' : 'None'})</span><strong>${UI.binding.checked ? (bindingCostPerBook === 0 ? 'FREE' : '₹' + bindingCostPerBook) : '₹0'}</strong></div>
-                <div class="summary-item"><span>Copies</span><strong>${copies}</strong></div>
+                
+                <div class="summary-item" style="border-top: 2px solid var(--border); margin-top: 10px; padding-top: 10px;">
+                    <span style="color: var(--text-main); font-weight: 600;">Cost Per Copy</span>
+                    <strong style="color: var(--primary);">₹${totalPerBook}</strong>
+                </div>
+                <div class="summary-item" style="border-bottom: none;">
+                    <span>Number of Copies</span>
+                    <strong>${copies}</strong>
+                </div>
             `;
 
             // UPI Link
@@ -618,12 +528,12 @@
 
             // WhatsApp Integration
             UI.whatsappBtn.onclick = () => {
-                let typeText = type === 'mixed'
-                    ? `Mixed (B&W: ${bwPages}, Color: ${colorPages})\n*Color Pages:* ${pageStr}`
+                let typeText = type === 'mixed' 
+                    ? `Mixed (B&W: ${bwPages}, Color: ${colorPages})\n*Color Pages:* ${pageStr}` 
                     : (type === 'bw' ? 'All Black & White' : 'All Color');
-
-                const bindingStatus = UI.binding.checked
-                    ? (bindingCostPerBook === 0 ? 'Yes (FREE)' : `Yes (₹${PRICING.bindingBase})`)
+                
+                const bindingStatus = UI.binding.checked 
+                    ? (bindingCostPerBook === 0 ? 'Yes (FREE)' : `Yes (₹${PRICING.bindingBase})`) 
                     : 'No';
 
                 const message = `*NEW PRINTING ORDER*\n` +
@@ -633,9 +543,10 @@
                     `*Total Pages:* ${totalPages}\n` +
                     `*Print Type:* ${typeText}\n` +
                     `*Sides:* ${sideName}\n` +
-                    `*Copies:* ${copies}\n` +
                     `*Spiral Binding:* ${bindingStatus}\n` +
                     `--------------------------\n` +
+                    `*Cost per Copy:* ₹${totalPerBook}\n` +
+                    `*Total Copies:* ${copies}\n` +
                     `*FINAL TOTAL:* ₹${grandTotal}\n\n` +
                     `✅ _Please attach your PDF document AND a screenshot of your successful payment to this chat._`;
 
@@ -648,5 +559,4 @@
         });
     </script>
 </body>
-
 </html>
