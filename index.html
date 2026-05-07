@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +8,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
             --secondary: #10b981;
-            --accent: #f59e0b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
             --danger: #ef4444;
-            --bg: #f3f4f6;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-main: #1f2937;
-            --text-muted: #6b7280;
-            --border: #e5e7eb;
-            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 16px;
         }
 
         * {
@@ -32,100 +34,153 @@
         }
 
         body {
-            background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+            background-color: var(--bg-color);
             color: var(--text-main);
             min-height: 100vh;
-            padding: 20px;
+            padding: 20px 15px;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
         }
 
         .app-container {
             width: 100%;
-            max-width: 550px;
-            margin-top: 20px;
+            max-width: 600px;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .header h1 {
             font-size: 2.2rem;
             font-weight: 800;
-            background: linear-gradient(to right, var(--primary), var(--primary-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
+            color: var(--primary);
+            margin-bottom: 5px;
         }
 
         .header p {
             color: var(--text-muted);
-            font-weight: 400;
+            font-size: 1.05rem;
         }
 
+        /* Pricing Table Styles */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .price-card.special {
+            border-color: var(--primary);
+            background: #eff6ff;
+        }
+
+        .price-card h3 {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .price-card .rate {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: var(--text-muted);
+        }
+
+        .price-card .rate span {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .binding-banner {
+            background: linear-gradient(135deg, var(--secondary), #059669);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Main Card */
         .card {
             background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow-md);
             margin-bottom: 25px;
-            transition: transform 0.3s ease;
         }
 
-        .form-section-title {
-            font-size: 1.1rem;
-            font-weight: 600;
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
             margin-bottom: 20px;
-            color: var(--primary-dark);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
         }
 
         .form-group {
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
             font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 6px;
+            font-weight: 600;
+            margin-bottom: 8px;
             color: var(--text-main);
         }
 
-        input[type="number"],
         input[type="text"],
+        input[type="number"],
         select {
             width: 100%;
-            padding: 12px 15px;
-            border-radius: 12px;
-            border: 1.5px solid var(--border);
-            background: #fff;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: #f8fafc;
             font-size: 1rem;
             transition: all 0.2s ease;
             outline: none;
+            color: var(--text-main);
         }
 
-        input:focus, select:focus {
+        input:focus,
+        select:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
         }
 
         .checkbox-container {
             display: flex;
             align-items: center;
-            background: #f9fafb;
-            padding: 12px 15px;
-            border-radius: 12px;
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 10px;
             cursor: pointer;
-            border: 1.5px solid var(--border);
+            border: 1px solid var(--border);
             transition: all 0.2s ease;
+            font-weight: 500;
         }
 
         .checkbox-container:hover {
@@ -137,74 +192,74 @@
             height: 18px;
             margin-right: 12px;
             accent-color: var(--primary);
-            cursor: pointer;
         }
 
         .dynamic-panel {
             display: none;
-            background: #f5f3ff;
+            background: #eff6ff;
             padding: 15px;
-            border-radius: 15px;
-            margin-top: 10px;
+            border-radius: 10px;
+            margin-top: -10px;
+            margin-bottom: 20px;
             border-left: 4px solid var(--primary);
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .btn {
             width: 100%;
-            padding: 15px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: 10px;
             border: none;
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             text-decoration: none;
         }
 
         .btn-primary {
-            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            background: var(--primary);
             color: white;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
         }
 
         .btn-primary:hover {
+            background: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
         }
 
+        /* Summary Section */
         .summary-card {
             display: none;
             border: 2px solid var(--primary);
-            animation: slideIn 0.4s ease-out;
+            animation: slideUp 0.4s ease-out;
         }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-        .summary-header {
-            text-align: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed var(--border);
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .summary-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 12px;
+            padding: 8px 0;
             font-size: 0.95rem;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .summary-item:last-of-type {
+            border-bottom: none;
         }
 
         .summary-item span:first-child {
@@ -213,95 +268,118 @@
 
         .summary-total {
             margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px solid var(--border);
+            padding: 15px;
+            background: #eff6ff;
+            border-radius: 10px;
             display: flex;
             justify-content: space-between;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-dark);
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
         }
 
-        .qr-card {
+        .qr-section {
             background: #fff;
             padding: 20px;
-            border-radius: 15px;
+            border-radius: 12px;
             text-align: center;
             margin: 20px 0;
             border: 1px solid var(--border);
         }
 
         .qr-image {
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             margin: 0 auto 15px;
-            background: #f9fafb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            padding: 10px;
         }
 
         .qr-image img {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        .upi-id-box {
-            font-size: 0.85rem;
+        .upi-text {
+            font-size: 0.9rem;
             color: var(--text-muted);
             margin-bottom: 15px;
-            word-break: break-all;
         }
 
-        .upi-id-box strong {
+        .upi-text strong {
             color: var(--text-main);
-            background: #f3f4f6;
-            padding: 2px 6px;
-            border-radius: 4px;
+            user-select: all;
         }
 
         .btn-whatsapp {
             background: #25d366;
             color: white;
-            margin-top: 12px;
+            margin-top: 15px;
         }
 
         .btn-whatsapp:hover {
-            background: #128c7e;
+            background: #1ebc5b;
             transform: translateY(-2px);
         }
 
         .btn-upi {
-            background: #1f2937;
+            background: #0f172a;
             color: white;
         }
 
         .error-hint {
             color: var(--danger);
-            font-size: 0.8rem;
-            margin-top: 4px;
+            font-size: 0.85rem;
+            margin-top: 6px;
             display: none;
+            font-weight: 500;
         }
 
         @media (max-width: 480px) {
-            .app-container { margin-top: 10px; }
-            .card { padding: 20px; }
-            .header h1 { font-size: 1.8rem; }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="app-container">
         <div class="header">
             <h1><i class="fas fa-print"></i> Bhatia Print Shop</h1>
-            <p>Quality prints at your doorstep</p>
+            <p>Quality prints delivered fast</p>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Normal Prints</h3>
+                <div class="rate">Black & White <span>₹4/pg</span></div>
+                <div class="rate">Color <span>₹7/pg</span></div>
+            </div>
+            <div class="price-card special">
+                <h3>Assignments / Projects</h3>
+                <div class="rate">Black & White <span>₹3/pg</span></div>
+                <div class="rate">Color <span>₹5/pg</span></div>
+            </div>
+        </div>
+        <div class="binding-banner">
+            <i class="fas fa-book"></i> Spiral Binding: ₹25 (FREE for documents over 50 pages!)
         </div>
 
         <div class="card">
-            <div class="form-section-title">
-                <i class="fas fa-file-invoice"></i> Order Details
+            <div class="section-title">
+                <i class="fas fa-file-invoice"></i> Create Your Order
+            </div>
+
+            <div class="form-group">
+                <label>Your Full Name</label>
+                <input type="text" id="customerName" placeholder="Enter your name">
+                <div id="nameError" class="error-hint">Please enter your name.</div>
             </div>
 
             <div class="form-group">
@@ -313,7 +391,7 @@
             </div>
 
             <div class="form-group">
-                <label>Total Pages</label>
+                <label>Total Pages in PDF</label>
                 <input type="number" id="totalPages" min="1" value="1">
                 <div id="totalPagesError" class="error-hint">Please enter a valid page count.</div>
             </div>
@@ -327,16 +405,12 @@
                 </select>
             </div>
 
-            <!-- Mixed Input Panel -->
             <div id="mixedPanel" class="dynamic-panel">
-                <div class="form-group">
-                    <label>Color Page Numbers</label>
-                    <input type="text" id="colorPageNumbers" placeholder="e.g. 1, 4, 10-15">
-                </div>
                 <div class="form-group" style="margin-bottom: 0;">
-                    <label>Total Count of Color Pages</label>
-                    <input type="number" id="colorPagesCount" min="0" value="0">
-                    <div id="colorCountError" class="error-hint">Cannot exceed total pages.</div>
+                    <label>Color Page Numbers (e.g. 1, 4, 10-15)</label>
+                    <input type="text" id="colorPageNumbers" placeholder="Enter page numbers or ranges">
+                    <div id="colorCountError" class="error-hint">Calculated color pages exceed total pages or format is
+                        invalid.</div>
                 </div>
             </div>
 
@@ -361,18 +435,16 @@
             </div>
 
             <button id="calculateBtn" class="btn btn-primary">
-                <i class="fas fa-calculator"></i> Calculate & Proceed
+                <i class="fas fa-calculator"></i> Calculate Total Price
             </button>
         </div>
 
-        <!-- Result Summary -->
         <div id="summaryCard" class="card summary-card">
-            <div class="summary-header">
-                <h3><i class="fas fa-check-circle"></i> Order Summary</h3>
+            <div class="section-title">
+                <i class="fas fa-check-circle"></i> Order Summary
             </div>
-            
+
             <div id="summaryRows">
-                <!-- Populated by JS -->
             </div>
 
             <div class="summary-total">
@@ -380,32 +452,37 @@
                 <span id="finalTotal">₹0</span>
             </div>
 
-            <div class="qr-card">
+            <div class="qr-section">
                 <div class="qr-image">
-                    <img src="qr-placeholder.png" alt="UPI QR">
+                    <img src="qr.png" alt="Jaspreet UPI QR">
                 </div>
-                <div class="upi-id-box">
+                <div class="upi-text">
                     UPI ID: <strong>bhatiajaspreet161@oksbi</strong>
                 </div>
                 <a id="upiDeepLink" href="#" class="btn btn-upi">
-                    <i class="fas fa-mobile-alt"></i> Pay via UPI App
+                    <i class="fas fa-mobile-alt"></i> Pay using UPI App
                 </a>
             </div>
 
             <button id="whatsappBtn" class="btn btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> Send Details to WhatsApp
+                <i class="fab fa-whatsapp"></i> Send Order Details to WhatsApp
             </button>
+            <p
+                style="text-align: center; font-size: 0.85rem; color: var(--danger); margin-top: 12px; font-weight: 500;">
+                <i class="fas fa-exclamation-circle"></i> Please attach your PDF file AND a screenshot of your payment
+                in the WhatsApp chat.
+            </p>
         </div>
     </div>
 
     <script>
         const UI = {
+            customerName: document.getElementById('customerName'),
             category: document.getElementById('docCategory'),
             totalPages: document.getElementById('totalPages'),
             printType: document.getElementById('printType'),
             mixedPanel: document.getElementById('mixedPanel'),
             colorPageNums: document.getElementById('colorPageNumbers'),
-            colorCount: document.getElementById('colorPagesCount'),
             printSides: document.getElementById('printSides'),
             copies: document.getElementById('copies'),
             binding: document.getElementById('spiralBinding'),
@@ -415,7 +492,7 @@
             finalTotal: document.getElementById('finalTotal'),
             whatsappBtn: document.getElementById('whatsappBtn'),
             upiDeepLink: document.getElementById('upiDeepLink'),
-            // Errors
+            nameError: document.getElementById('nameError'),
             totalPagesError: document.getElementById('totalPagesError'),
             colorCountError: document.getElementById('colorCountError')
         };
@@ -426,19 +503,50 @@
             bindingBase: 25
         };
 
-        // Handle Dynamic Logic
+        function calculateColorPages(inputStr) {
+            if (!inputStr.trim()) return 0;
+            let count = 0;
+            const parts = inputStr.split(',');
+
+            for (let part of parts) {
+                part = part.trim();
+                if (part.includes('-')) {
+                    const range = part.split('-');
+                    if (range.length === 2) {
+                        const start = parseInt(range[0].trim());
+                        const end = parseInt(range[1].trim());
+                        if (!isNaN(start) && !isNaN(end) && start <= end) {
+                            count += (end - start + 1);
+                        }
+                    }
+                } else {
+                    const page = parseInt(part);
+                    if (!isNaN(page)) count++;
+                }
+            }
+            return count;
+        }
+
         UI.printType.addEventListener('change', () => {
             UI.mixedPanel.style.display = UI.printType.value === 'mixed' ? 'block' : 'none';
         });
 
         UI.calculateBtn.addEventListener('click', () => {
             // Validation
+            const customerName = UI.customerName.value.trim();
             const totalPages = parseInt(UI.totalPages.value) || 0;
             const copies = parseInt(UI.copies.value) || 1;
             const category = UI.category.value;
             const type = UI.printType.value;
-            
+
             let hasError = false;
+
+            if (!customerName) {
+                UI.nameError.style.display = 'block';
+                hasError = true;
+            } else {
+                UI.nameError.style.display = 'none';
+            }
 
             if (totalPages < 1) {
                 UI.totalPagesError.style.display = 'block';
@@ -449,6 +557,7 @@
 
             let colorPages = 0;
             let bwPages = 0;
+            let pageStr = "";
 
             if (type === 'bw') {
                 bwPages = totalPages;
@@ -457,7 +566,9 @@
                 bwPages = 0;
                 colorPages = totalPages;
             } else {
-                colorPages = parseInt(UI.colorCount.value) || 0;
+                pageStr = UI.colorPageNums.value;
+                colorPages = calculateColorPages(pageStr);
+
                 if (colorPages > totalPages) {
                     UI.colorCountError.style.display = 'block';
                     hasError = true;
@@ -472,11 +583,11 @@
             // Calculations
             const bwRate = PRICING[category].bw;
             const colorRate = PRICING[category].color;
-            
+
             const bwCost = bwPages * bwRate;
             const colorCost = colorPages * colorRate;
             const printCostPerBook = bwCost + colorCost;
-            
+
             let bindingCostPerBook = 0;
             if (UI.binding.checked) {
                 bindingCostPerBook = totalPages > 50 ? 0 : PRICING.bindingBase;
@@ -493,30 +604,31 @@
             const sideName = UI.printSides.options[UI.printSides.selectedIndex].text;
 
             UI.summaryRows.innerHTML = `
+                <div class="summary-item"><span>Name</span><strong>${customerName}</strong></div>
                 <div class="summary-item"><span>Category</span><strong>${categoryName}</strong></div>
-                <div class="summary-item"><span>Total Pages</span><strong>${totalPages}</strong></div>
                 <div class="summary-item"><span>B&W Pages (${bwPages} × ₹${bwRate})</span><strong>₹${bwCost}</strong></div>
                 <div class="summary-item"><span>Color Pages (${colorPages} × ₹${colorRate})</span><strong>₹${colorCost}</strong></div>
                 <div class="summary-item"><span>Binding (${UI.binding.checked ? 'Spiral' : 'None'})</span><strong>${UI.binding.checked ? (bindingCostPerBook === 0 ? 'FREE' : '₹' + bindingCostPerBook) : '₹0'}</strong></div>
-                <div class="summary-item"><span>Total Copies</span><strong>${copies}</strong></div>
+                <div class="summary-item"><span>Copies</span><strong>${copies}</strong></div>
             `;
 
             // UPI Link
-            const upiUrl = `upi://pay?pa=bhatiajaspreet161@oksbi&pn=Jaspreet&am=${grandTotal}&cu=INR`;
+            const upiUrl = `upi://pay?pa=bhatiajaspreet161@oksbi&pn=Bhatia Print Shop&am=${grandTotal}&cu=INR`;
             UI.upiDeepLink.href = upiUrl;
 
             // WhatsApp Integration
             UI.whatsappBtn.onclick = () => {
-                const typeText = type === 'mixed' 
-                    ? `Mixed (B&W: ${bwPages}, Color: ${colorPages})` 
+                let typeText = type === 'mixed'
+                    ? `Mixed (B&W: ${bwPages}, Color: ${colorPages})\n*Color Pages:* ${pageStr}`
                     : (type === 'bw' ? 'All Black & White' : 'All Color');
-                
-                const bindingStatus = UI.binding.checked 
-                    ? (bindingCostPerBook === 0 ? 'Yes (FREE)' : 'Yes (₹25)') 
+
+                const bindingStatus = UI.binding.checked
+                    ? (bindingCostPerBook === 0 ? 'Yes (FREE)' : `Yes (₹${PRICING.bindingBase})`)
                     : 'No';
 
                 const message = `*NEW PRINTING ORDER*\n` +
                     `--------------------------\n` +
+                    `*Name:* ${customerName}\n` +
                     `*Category:* ${categoryName}\n` +
                     `*Total Pages:* ${totalPages}\n` +
                     `*Print Type:* ${typeText}\n` +
@@ -525,15 +637,16 @@
                     `*Spiral Binding:* ${bindingStatus}\n` +
                     `--------------------------\n` +
                     `*FINAL TOTAL:* ₹${grandTotal}\n\n` +
-                    `Please attach your PDF document to this chat.`;
+                    `✅ _Please attach your PDF document AND a screenshot of your successful payment to this chat._`;
 
                 const waUrl = `https://wa.me/917717670668?text=${encodeURIComponent(message)}`;
                 window.open(waUrl, '_blank');
             };
 
-            // Scroll to summary
-            UI.summaryCard.scrollIntoView({ behavior: 'smooth' });
+            // Smooth Scroll
+            UI.summaryCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
     </script>
 </body>
+
 </html>
